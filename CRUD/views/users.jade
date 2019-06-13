@@ -1,0 +1,56 @@
+extends layout
+
+block content 
+    .container
+        .row
+            .h2 Add Users
+
+    .container
+        .row
+            .col
+                form(method='post')
+                    .form-row
+                        .form-group.col-md-6
+                            label(for='firstName') First Name
+                            input#firstname.form-control(type='text', placeholder='Enter your first name', name="firstName", required, minlength = '5', maxlength = '25')
+                          
+                    .form-row
+                        .form-group.col-md-6
+                            label(for='lastName') Last Name
+                            input#lastname.form-control(type='text', placeholder='Enter your last name', name="lastName", required, minlength =  '3', maxlength= '25')
+                         
+                    .form-row
+                        .form-group.col-md-7
+                            label(for='email') Email address
+                            input#email.form-control(type='email', name="email", aria-describedby='emailHelp', placeholder='Enter email', required, pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$")
+                           
+                    .form-row
+                        .form-group.col-md-3
+                            label(for='age') Age
+                            input#age.form-control(type='number', name='age', placeholder='Enter age')
+                      
+                    | Gender:
+                    .form-check
+                        input#male.form-check-input(type='radio', name='gender', value='Male', checked='')
+                        label.form-check-label(for='male') Male
+                        .form-check
+                        input#female.form-check-input(type='radio', name='gender', value='Female')
+                        label.form-check-label(for='female') Female
+                    br
+                    .form-row
+                        .form-group.col-md-6
+                            label(for='username') Username
+                            input#username.form-control(type='text' placeholder='Enter username' name="username" required)
+            
+                    
+                    .form-row
+                        .form-group.col-md-7
+                            label(for='password') Password
+                            input#password.form-control(type='password', name="password", placeholder='Enter password', required )
+                    button.btn.btn-primary(type='submit', href='/') Add User
+            .col
+                ul
+                each val, index in users
+                    a(href= '/users/'+val._id)
+                        li= val.firstName + ' ' + val.lastName + ' (' + val.email + ')'
+ 

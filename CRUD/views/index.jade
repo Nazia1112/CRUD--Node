@@ -1,0 +1,25 @@
+extends layout
+
+block content 
+    .container
+        .row
+            .h2 Login
+
+    .container
+        .row
+            .col
+                form(method='post')
+                    .form-row
+                        .form-group.col-md-7
+                            label(for='email') Email address
+                            input#email.form-control(type='email', name="email", aria-describedby='emailHelp', placeholder='Enter email', required, pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$")
+
+                    .form-row
+                        .form-group.col-md-7
+                            label(for='password') Password
+                            input#email.form-control(type='password', name="password", aria-describedby='emailHelp', placeholder='Enter password', required)
+                           
+                    
+                    button.btn.btn-primary(type='submit', href='/users') Login
+            
+ 

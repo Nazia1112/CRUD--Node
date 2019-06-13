@@ -1,0 +1,49 @@
+extends layout
+
+
+
+block content 
+ br
+ .container
+    a(href='/users') Back
+    br
+    br
+    .container
+        .row
+            .h2 Update User
+            br
+    form(method='post')
+        .container
+            .form-row
+                .form-group.col-md-6
+                    label(for='firstName') First Name
+                    input#firstname.form-control(type='text', placeholder='Enter your first name', name="firstName", value=user.firstName)
+            .form-row
+                .form-group.col-md-6
+                    label(for='lastName') Last Name
+                    input#lastname.form-control(type='text', placeholder='Enter your last name', name="lastName", value=user.lastName)
+            .form-row
+                .form-group.col-md-7
+                    label(for='email') Email address
+                    input#email.form-control(type='email', name="email", aria-describedby='emailHelp', placeholder='Enter email', value=user.email)
+            .form-row            
+                .form-group.col-md-3
+                    label(for='age') Age
+                    input#age.form-control(type='number', name='age', placeholder='Enter age', value=user.age)
+            
+            | Gender:
+            .form-check
+                input#male.form-check-input(type='radio', name='gender', value='Male', checked='')
+                label.form-check-label(for='male') Male
+            .form-check
+                input#female.form-check-input(type='radio', name='gender', value='Female')
+                label.form-check-label(for='female') Female
+            br
+            .form-row
+                .form-group.col-md-6
+                    label(for='username') Username
+                    input#username.form-control(type='text', placeholder='Enter your username', name="username", value=user.username)
+            
+            
+            
+            button.btn.btn-primary(type='submit') Update
